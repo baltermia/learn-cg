@@ -10,6 +10,8 @@ void callback_framebuffer_size_changed(GLFWwindow* window, int width, int height
 void frame_process_input(GLFWwindow* window);
 void frame_render();
 
+void create_triangle();
+
 int main()
 {
 	size_t width = 800;
@@ -69,6 +71,11 @@ int main()
 	glfwSetFramebufferSizeCallback(window, callback_framebuffer_size_changed);
 
 	/* --------------------------------- */
+	/* Create Triangle */
+	
+	create_triangle();
+
+	/* --------------------------------- */
 	/* Render-Loop */
 
 	while (!glfwWindowShouldClose(window))
@@ -118,3 +125,23 @@ void frame_render()
 }
 
 /* ------------------------------------- */
+
+void create_triangle()
+{
+	// Write Memory to GPU
+	float vertices[] =
+	{
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.0f,  0.5f, 0.0f
+	};
+
+	unsigned int vbo;
+	glGenBuffers(1, &vbo);
+
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+	// Vertex Shader
+}
