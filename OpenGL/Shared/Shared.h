@@ -6,10 +6,10 @@
 
 // std
 #include <string>
-#include <fstream>
 
-namespace help
+namespace shrd
 {
+
 	std::string read_file_into_string(const std::string& filename);
 
 	bool check_compilation_success(unsigned int shader_id);

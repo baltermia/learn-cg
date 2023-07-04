@@ -6,7 +6,7 @@
 #include <iostream>
 
 // lib
-#include "Helper.h"
+#include "..\..\Shared\Shared.h"
 
 void callback_framebuffer_size_changed(GLFWwindow* window, int width, int height);
 
@@ -170,12 +170,12 @@ void create_triangle(unsigned int program_id)
 	bool success;
 
 	unsigned int vertex_shader;
-	success = help::try_load_shader("triangle.vert", &vertex_shader, GL_VERTEX_SHADER);
+	success = shrd::try_load_shader("triangle.vert", &vertex_shader, GL_VERTEX_SHADER);
 
 	/* ------------------------------------- */
 	// Load Fragment Shader
 	unsigned int fragmet_shader;
-	success = help::try_load_shader("triangle.frag", &fragmet_shader, GL_FRAGMENT_SHADER);
+	success = shrd::try_load_shader("triangle.frag", &fragmet_shader, GL_FRAGMENT_SHADER);
 
 	/* ------------------------------------- */
 	// Load Shaders into Program
@@ -184,7 +184,7 @@ void create_triangle(unsigned int program_id)
 	glAttachShader(program_id, fragmet_shader);
 	glLinkProgram(program_id);
 
-	success = help::check_linking_success(program_id);
+	success = shrd::check_linking_success(program_id);
 
 	// Delete shadeers after linking
 	glDeleteShader(vertex_shader);
