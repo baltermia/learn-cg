@@ -13,7 +13,7 @@
 namespace shrd
 {
 
-	bool initialize_basic_window(int width, int height, GLFWwindow** out_window)
+	bool initialize_basic_window(int width, int height, const std::string& window_name, GLFWwindow** out_window)
 	{
 		/* --------------------------------- */
 		/* Initialize GLFW */
@@ -37,7 +37,7 @@ namespace shrd
 		/* --------------------------------- */
 		/* Create Window Object */
 
-		* out_window = glfwCreateWindow(width, height, "LearnOpenGL.com - Hello Triangle", NULL, NULL);
+		* out_window = glfwCreateWindow(width, height, window_name.c_str(), NULL, NULL);
 
 		if (out_window == NULL)
 		{
