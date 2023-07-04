@@ -9,6 +9,7 @@
 
 namespace shrd
 {
+	bool initialize_basic_window(int width, int height, GLFWwindow** out_window);
 
 	std::string read_file_into_string(const std::string& filename);
 
