@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hello Triangle", "OpenGL\Le
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "OpenGL\Shared\Shared.vcxproj", "{7A4C94D7-84AB-427D-9095-2DD064579BBB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Element Buffer Objects", "OpenGL\LearnOpenGL.com\Element Buffer Objects\Element Buffer Objects.vcxproj", "{227670E0-7D33-47A8-A80C-372BCEA7163C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -38,6 +40,14 @@ Global
 		{7A4C94D7-84AB-427D-9095-2DD064579BBB}.Release|x64.Build.0 = Release|x64
 		{7A4C94D7-84AB-427D-9095-2DD064579BBB}.Release|x86.ActiveCfg = Release|Win32
 		{7A4C94D7-84AB-427D-9095-2DD064579BBB}.Release|x86.Build.0 = Release|Win32
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Debug|x64.ActiveCfg = Debug|x64
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Debug|x64.Build.0 = Debug|x64
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Debug|x86.ActiveCfg = Debug|Win32
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Debug|x86.Build.0 = Debug|Win32
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x64.ActiveCfg = Release|x64
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x64.Build.0 = Release|x64
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x86.ActiveCfg = Release|Win32
+		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +56,7 @@ Global
 		{A42B25E4-8397-4A86-821F-DE197E21EC8A} = {8E94A112-1F88-491B-AAA1-DA24E2DB7E9E}
 		{ED46D118-B4A5-4567-90C2-98954CD6BA99} = {A42B25E4-8397-4A86-821F-DE197E21EC8A}
 		{7A4C94D7-84AB-427D-9095-2DD064579BBB} = {8E94A112-1F88-491B-AAA1-DA24E2DB7E9E}
+		{227670E0-7D33-47A8-A80C-372BCEA7163C} = {A42B25E4-8397-4A86-821F-DE197E21EC8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2503D3BB-F01E-42BC-AAA5-EA5F771501F2}
