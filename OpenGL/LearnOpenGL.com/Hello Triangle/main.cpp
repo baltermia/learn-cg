@@ -15,11 +15,20 @@ void frame_render(unsigned int program_id, unsigned int vertex_array_object);
 
 void create_triangle(unsigned int program_id);
 
+bool initialize(int width, int height, GLFWwindow** out_window);
+bool run(GLFWwindow* window);
+bool clean();
+
 int main()
 {
-	int width = 800;
-	int height = 600;
+	GLFWwindow* window;
+	initialize(800, 600, &window);
+	run(window);
+	clean();
+}
 
+bool initialize(int width, int height, GLFWwindow** out_window)
+{
 	/* --------------------------------- */
 	/* Initialize GLFW */
 
@@ -42,16 +51,16 @@ int main()
 	/* --------------------------------- */
 	/* Create Window Object */
 
-	GLFWwindow* window = glfwCreateWindow(width, height, "LearnOpenGL.com - Hello Triangle", NULL, NULL);
+	*out_window = glfwCreateWindow(width, height, "LearnOpenGL.com - Hello Triangle", NULL, NULL);
 
-	if (window == NULL)
+	if (out_window == NULL)
 	{
 		std::cout << "Failed to create GLFW Window object" << std::endl;
 		glfwTerminate();
-		return -1;
+		return false;
 	}
 
-	glfwMakeContextCurrent(window);
+	glfwMakeContextCurrent(*out_window);
 
 	/* --------------------------------- */
 	/* Initialize GLAD */
@@ -61,7 +70,7 @@ int main()
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
-		return -1;
+		return false;
 	}
 
 	/* --------------------------------- */
@@ -70,6 +79,11 @@ int main()
 	// offset (0,0)
 	glViewport(0, 0, width, height);
 
+	return true;
+}
+
+bool run(GLFWwindow* window)
+{
 	// create callback which changes the gl-viewport automatically when the glfw-window gets resized
 	glfwSetFramebufferSizeCallback(window, callback_framebuffer_size_changed);
 
@@ -104,13 +118,14 @@ int main()
 		glfwPollEvents();
 	}
 
-	/* --------------------------------- */
-	/* Clean Up / Deallocate */
+	return true;
+}
 
+bool clean()
+{
 	glfwTerminate();
 
-	/* --------------------------------- */
-
+	return true;
 }
 
 /* Callbacks */
