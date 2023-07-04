@@ -175,7 +175,7 @@ void create_triangle(unsigned int program_id)
 	/* ------------------------------------- */
 	// Load Fragment Shader
 	unsigned int fragmet_shader;
-	success = help::try_load_shader("triangle.vert", &fragmet_shader, GL_VERTEX_SHADER);
+	success = help::try_load_shader("triangle.frag", &fragmet_shader, GL_FRAGMENT_SHADER);
 
 	/* ------------------------------------- */
 	// Load Shaders into Program
