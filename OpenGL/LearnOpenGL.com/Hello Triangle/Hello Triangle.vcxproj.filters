@@ -15,25 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="README.md" />
-    <None Include="triangle.vert">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </None>
-    <None Include="triangle.frag">
-      <Filter>Source Files</Filter>
-    </None>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Helper.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="triangle.frag">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="triangle.vert">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
