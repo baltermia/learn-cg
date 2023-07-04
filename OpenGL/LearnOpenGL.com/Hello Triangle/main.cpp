@@ -42,7 +42,7 @@ int main()
 	/* --------------------------------- */
 	/* Create Window Object */
 
-	GLFWwindow* window = glfwCreateWindow(width, height, "Shader Sandbox", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "LearnOpenGL.com - Hello Triangle", NULL, NULL);
 
 	if (window == NULL)
 	{
