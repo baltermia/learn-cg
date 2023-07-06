@@ -21,7 +21,7 @@ bool clean();
 int main()
 {
 	GLFWwindow* window;
-	shrd::initialize_basic_window(800, 600, "Hello Triangle",  & window);
+	shrd::initialize_basic_window({ 800, 600 }, "Hello Triangle", { 4, 6 }, &window);
 	run(window);
 	clean();
 }

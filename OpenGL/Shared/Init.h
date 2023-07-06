@@ -9,7 +9,10 @@
 
 namespace shrd
 {
-	bool initialize_basic_window(int width, int height, const std::string& window_name, GLFWwindow** out_window);
+	bool initialize_basic_window(const std::pair<int, int>& window_size, 
+								 const std::string& window_name, 
+								 const std::pair<int, int>& opengl_version,
+								 GLFWwindow** out_window);
 
 	bool check_compilation_success(unsigned int shader_id);
 

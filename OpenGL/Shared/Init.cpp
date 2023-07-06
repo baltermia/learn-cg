@@ -15,7 +15,10 @@
 namespace shrd
 {
 
-	bool initialize_basic_window(int width, int height, const std::string& window_name, GLFWwindow** out_window)
+	bool initialize_basic_window(const std::pair<int, int>& window_size, 
+								 const std::string& window_name, 
+								 const std::pair<int, int>& opengl_version,
+								 GLFWwindow** out_window)
 	{
 		/* --------------------------------- */
 		/* Initialize GLFW */
@@ -25,8 +28,8 @@ namespace shrd
 
 		// set OpenGL version
 		// check installed version with a tool such as https://realtech-vr.com/home/glview
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, opengl_version.first);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, opengl_version.second);
 
 		// explicitly use core version (so no major backwards-compatibility)
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -39,7 +42,7 @@ namespace shrd
 		/* --------------------------------- */
 		/* Create Window Object */
 
-		* out_window = glfwCreateWindow(width, height, window_name.c_str(), NULL, NULL);
+		* out_window = glfwCreateWindow(window_size.first, window_size.second, window_name.c_str(), NULL, NULL);
 
 		if (out_window == NULL)
 		{
@@ -65,7 +68,7 @@ namespace shrd
 		/* Configure OpenGL */
 
 		// offset (0,0)
-		glViewport(0, 0, width, height);
+		glViewport(0, 0, window_size.first, window_size.second);
 
 		return true;
 	}
