@@ -4,11 +4,13 @@
 #include "pch.h"
 #include "framework.h"
 
-#include "Shared.h"
+#include "Init.h"
+
+// shared
+#include "IO.h"
 
 // std
 #include <iostream>
-#include <fstream>
 
 namespace shrd
 {
@@ -68,18 +70,6 @@ namespace shrd
 		return true;
 	}
 
-	std::string read_file_into_string(const std::string& filename)
-	{
-		std::ifstream file(filename);
-
-		std::string content{ std::istreambuf_iterator<char>(file),
-							  std::istreambuf_iterator<char>() };
-
-		file.close();
-
-		return content;
-	}
-
 	bool check_compilation_success(unsigned int shader_id)
 	{
 		int  success;
@@ -94,7 +84,6 @@ namespace shrd
 
 		return success;
 	}
-
 
 	bool try_load_shader(const std::string& file_name, unsigned int* out_shader_id, GLenum shader_type)
 	{
