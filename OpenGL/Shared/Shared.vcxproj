@@ -143,7 +143,6 @@
     <ClInclude Include="Init.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Setup.h" />
     <ClInclude Include="Shared.h" />
   </ItemGroup>
   <ItemGroup>

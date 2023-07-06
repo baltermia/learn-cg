@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Init">
+      <UniqueIdentifier>{9ff9768e-9c8d-404a-ba79-c7eb008dddca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{3fc7c495-9c49-4ae8-b99a-6f0371488d1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -21,28 +27,25 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shared.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Setup.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Init.h">
+      <Filter>Source Files\Init</Filter>
     </ClInclude>
     <ClInclude Include="IO.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\IO</Filter>
     </ClInclude>
-    <ClInclude Include="Init.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Shared.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Init.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Init</Filter>
+    </ClCompile>
+    <ClCompile Include="IO.cpp">
+      <Filter>Source Files\IO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
