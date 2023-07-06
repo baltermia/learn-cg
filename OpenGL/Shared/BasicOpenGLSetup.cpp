@@ -55,6 +55,8 @@ bool shrd::BasicOpenGLSetup::run()
 
 bool shrd::BasicOpenGLSetup::clean()
 {
+	glDeleteProgram(m_gl_program_id);
+
 	glfwTerminate();
 
 	return tmpl_clear_resources();

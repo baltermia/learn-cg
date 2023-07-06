@@ -13,6 +13,7 @@ class HelloTriangle : public shrd::BasicOpenGLSetup
 protected:
 	bool tmpl_setup() override;
 	bool tmpl_frame_render() override;
+	bool tmpl_clear_resources() override;
 
 	// template properties
 protected:
@@ -21,4 +22,7 @@ protected:
 
 private:
 	GLuint m_vao = 0; // vertex array object
+	GLuint m_vbo = 0; // vertex array objcet
+	GLuint m_vertex_shader = 0; 
+	GLuint m_fragment_shader = 0;
 };
