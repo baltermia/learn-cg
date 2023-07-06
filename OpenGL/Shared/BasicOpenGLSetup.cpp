@@ -59,3 +59,11 @@ bool shrd::BasicOpenGLSetup::clean()
 
 	return tmpl_clear_resources();
 }
+
+inline bool shrd::BasicOpenGLSetup::tmpl_frame_input()
+{
+	if (glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(m_window, true);
+
+	return true;
+}

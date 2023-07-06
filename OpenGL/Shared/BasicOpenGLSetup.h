@@ -45,7 +45,7 @@ namespace shrd
 	protected:
 		virtual inline bool tmpl_setup()			{ return true; }
 		virtual inline bool tmpl_frame_render()		{ return true; }
-		virtual inline bool tmpl_frame_input()		{ return true; }
+		virtual inline bool tmpl_frame_input();
 		virtual inline bool tmpl_clear_resources()	{ return true; }
 
 	// template properties
