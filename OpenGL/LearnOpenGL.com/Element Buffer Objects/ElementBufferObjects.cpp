@@ -8,11 +8,11 @@ bool ElementBufferObjects::tmpl_setup()
 	glBindVertexArray(m_vao);
 	/* ------------------------------------- */
 	// Write Memory to GPU
-	float vertices[] =
-	{
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f,  0.5f, 0.0f
+	float vertices[] = {
+		0.5f,  0.5f, 0.0f,  // top right
+		0.5f, -0.5f, 0.0f,  // bottom right
+		-0.5f, -0.5f, 0.0f,  // bottom left
+		-0.5f,  0.5f, 0.0f   // top left 
 	};
 
 	unsigned int indices[] = {  // note that we start from 0!
