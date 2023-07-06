@@ -23,8 +23,6 @@ protected:
 private:
 	GLuint m_vao = 0; // vertex array object
 	GLuint m_ebo = 0; // element buffer object
-	GLuint m_vbo = 0; // vertex array objcet
-	GLuint m_vertex_shader = 0;
-	GLuint m_fragment_shader = 0;
+	GLuint m_vbo = 0; // vertex array object
 
 };

@@ -47,6 +47,7 @@ namespace shrd
 		virtual inline bool tmpl_frame_render()		{ return true; }
 		virtual inline bool tmpl_frame_input();
 		virtual inline bool tmpl_clear_resources()	{ return true; }
+		virtual inline bool tmpl_load_shaders();
 
 	// template properties
 	protected:
@@ -57,8 +58,8 @@ namespace shrd
 		virtual inline std::pair<int, int> tmpl_prop_opengl_version() { return { 4, 6 }; };
 
 	protected:
-		GLFWwindow* m_window;
-		GLuint m_gl_program_id;
+		GLFWwindow* m_window = nullptr;
+		GLuint m_gl_program_id = 0;
 
 	private:
 		static void callback_framebuffer_size_changed(GLFWwindow* window, int width, int height);

@@ -25,6 +25,9 @@ bool shrd::BasicOpenGLSetup::initialize()
 
 	m_gl_program_id = glCreateProgram();
 
+	if (!tmpl_load_shaders())
+		return false;
+
 	return tmpl_setup();
 }
 
@@ -66,6 +69,37 @@ inline bool shrd::BasicOpenGLSetup::tmpl_frame_input()
 {
 	if (glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(m_window, true);
+
+	return true;
+}
+
+bool shrd::BasicOpenGLSetup::tmpl_load_shaders()
+{
+	/* ------------------------------------- */
+	// Load Vertex Shader
+	unsigned int vertex_shader;
+	if (!shrd::try_load_shader("shader.vert", &vertex_shader, GL_VERTEX_SHADER))
+		return false;
+
+	/* ------------------------------------- */
+	// Load Fragment Shader
+	unsigned int fragment_shader;
+	if (!shrd::try_load_shader("shader.frag", &fragment_shader, GL_FRAGMENT_SHADER))
+		return false;
+
+	/* ------------------------------------- */
+	// Load Shaders into Program
+
+	glAttachShader(m_gl_program_id, vertex_shader);
+	glAttachShader(m_gl_program_id, fragment_shader);
+	glLinkProgram(m_gl_program_id);
+
+	if (!shrd::check_linking_success(m_gl_program_id))
+		return false;
+
+	// Delete shadeers after linking
+	glDeleteShader(vertex_shader);
+	glDeleteShader(fragment_shader);
 
 	return true;
 }

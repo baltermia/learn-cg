@@ -23,10 +23,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="square.frag">
+    <None Include="shader.frag">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="square.vert">
+    <None Include="shader.vert">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
