@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BasicOpenGLSetup.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="IO.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="Shared.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BasicOpenGLSetup.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="pch.cpp">

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\IO">
       <UniqueIdentifier>{3fc7c495-9c49-4ae8-b99a-6f0371488d1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Setup">
+      <UniqueIdentifier>{76e0760a-6ada-4079-9391-4311ba052400}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -36,6 +39,9 @@
     <ClInclude Include="Shared.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BasicOpenGLSetup.h">
+      <Filter>Source Files\Setup</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="IO.cpp">
       <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicOpenGLSetup.cpp">
+      <Filter>Source Files\Setup</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
