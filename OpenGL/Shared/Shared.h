@@ -2,6 +2,7 @@
 
 #include "IO.h"
 #include "Init.h"
+#include "BasicOpenGLSetup.h"
 
 /// <summary>
 /// The Shared-Namespace (abbreviated 'shrd') contains common helper functions and classes that are widely reusable 
