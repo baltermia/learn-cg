@@ -136,7 +136,7 @@
     <None Include="shader.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\Shared.vcxproj">
+    <ProjectReference Include="..\..\..\Shared\Shared.vcxproj">
       <Project>{7a4c94d7-84ab-427d-9095-2dd064579bbb}</Project>
     </ProjectReference>
   </ItemGroup>

@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 // lib
-#include "..\..\Shared\Shared.h"
+#include "..\..\..\Shared\Shared.h"
 
 class HelloTriangle : public shrd::BasicOpenGLSetup
 {

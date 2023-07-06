@@ -16,7 +16,7 @@ namespace shrd
 
 	bool check_compilation_success(GLuint shader_id);
 
-	bool try_load_shader(const std::string& file_name, GLuint* out_shader_id, GLenum shader_type);
-
+	bool try_load_shader(const std::string& source, GLuint* out_shader_id, GLenum shader_type);
+	
 	bool check_linking_success(GLuint program_id);
 }

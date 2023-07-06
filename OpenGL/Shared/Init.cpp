@@ -88,12 +88,11 @@ namespace shrd
 		return success;
 	}
 
-	bool try_load_shader(const std::string& file_name, GLuint* out_shader_id, GLenum shader_type)
+	bool try_load_shader(const std::string& source, GLuint* out_shader_id, GLenum shader_type)
 	{
-		*out_shader_id = glCreateShader(shader_type);
+		const char* source_ptr = source.c_str();
 
-		std::string shader_source = read_file_into_string(file_name);
-		const char* source_ptr = shader_source.c_str();
+		*out_shader_id = glCreateShader(shader_type);
 
 		glShaderSource(*out_shader_id, 1, &source_ptr, NULL);
 		glCompileShader(*out_shader_id);

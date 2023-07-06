@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 // lib
-#include "..\..\Shared\Shared.h"
+#include "..\..\..\Shared\Shared.h"
 
 class ElementBufferObjects : public shrd::BasicOpenGLSetup
 {
@@ -24,5 +24,4 @@ private:
 	GLuint m_vao = 0; // vertex array object
 	GLuint m_ebo = 0; // element buffer object
 	GLuint m_vbo = 0; // vertex array object
-
 };
