@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Excercises", "Excercises", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tutorials", "Tutorials", "{EBCD2649-80D6-443A-9898-2B4F7DE9BA9F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Two Triangles", "OpenGL\LearnOpenGL.com\Excercises\Two Triangles\Two Triangles.vcxproj", "{398B836D-BE7A-481D-9EE2-7E1402A666DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -52,6 +54,14 @@ Global
 		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x64.Build.0 = Release|x64
 		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x86.ActiveCfg = Release|Win32
 		{227670E0-7D33-47A8-A80C-372BCEA7163C}.Release|x86.Build.0 = Release|Win32
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Debug|x64.ActiveCfg = Debug|x64
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Debug|x64.Build.0 = Debug|x64
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Debug|x86.ActiveCfg = Debug|Win32
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Debug|x86.Build.0 = Debug|Win32
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Release|x64.ActiveCfg = Release|x64
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Release|x64.Build.0 = Release|x64
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Release|x86.ActiveCfg = Release|Win32
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +73,7 @@ Global
 		{227670E0-7D33-47A8-A80C-372BCEA7163C} = {EBCD2649-80D6-443A-9898-2B4F7DE9BA9F}
 		{38E73FE7-671C-4493-A459-68F2FF7CC08F} = {A42B25E4-8397-4A86-821F-DE197E21EC8A}
 		{EBCD2649-80D6-443A-9898-2B4F7DE9BA9F} = {A42B25E4-8397-4A86-821F-DE197E21EC8A}
+		{398B836D-BE7A-481D-9EE2-7E1402A666DE} = {38E73FE7-671C-4493-A459-68F2FF7CC08F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2503D3BB-F01E-42BC-AAA5-EA5F771501F2}
