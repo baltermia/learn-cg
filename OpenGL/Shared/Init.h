@@ -14,9 +14,9 @@ namespace shrd
 								 const std::pair<int, int>& opengl_version,
 								 GLFWwindow** out_window);
 
-	bool check_compilation_success(unsigned int shader_id);
+	bool check_compilation_success(GLuint shader_id);
 
-	bool try_load_shader(const std::string& file_name, unsigned int* out_shader_id, GLenum shader_type);
+	bool try_load_shader(const std::string& file_name, GLuint* out_shader_id, GLenum shader_type);
 
-	bool check_linking_success(unsigned int program_id);
+	bool check_linking_success(GLuint program_id);
 }

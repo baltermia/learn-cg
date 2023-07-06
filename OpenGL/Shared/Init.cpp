@@ -73,7 +73,7 @@ namespace shrd
 		return true;
 	}
 
-	bool check_compilation_success(unsigned int shader_id)
+	bool check_compilation_success(GLuint shader_id)
 	{
 		int  success;
 		char infoLog[512];
@@ -88,7 +88,7 @@ namespace shrd
 		return success;
 	}
 
-	bool try_load_shader(const std::string& file_name, unsigned int* out_shader_id, GLenum shader_type)
+	bool try_load_shader(const std::string& file_name, GLuint* out_shader_id, GLenum shader_type)
 	{
 		*out_shader_id = glCreateShader(shader_type);
 
@@ -101,7 +101,7 @@ namespace shrd
 		return check_compilation_success(*out_shader_id);
 	}
 
-	bool check_linking_success(unsigned int program_id)
+	bool check_linking_success(GLuint program_id)
 	{
 		int  success;
 		char infoLog[512];
