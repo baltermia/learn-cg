@@ -1,5 +1,8 @@
 #include "ElementBufferObjects.h"
 
+// std
+#include <vector>
+
 bool ElementBufferObjects::tmpl_setup()
 {
 	// vao
@@ -8,34 +11,36 @@ bool ElementBufferObjects::tmpl_setup()
 	glBindVertexArray(m_vao);
 	/* ------------------------------------- */
 	// Write Memory to GPU
-	float vertices[] = {
-		0.5f,  0.5f, 0.0f,  // top right
-		0.5f, -0.5f, 0.0f,  // bottom right
-		-0.5f, -0.5f, 0.0f,  // bottom left
-		-0.5f,  0.5f, 0.0f   // top left 
+	std::vector<vec3f> vertices =
+	{
+		{ 0.5f,  0.5f },	// top right
+		{ 0.5f, -0.5f },	// bottom right
+		{ -0.5f, -0.5f },	// bottom left
+		{ -0.5f,  0.5f }	// top left 
 	};
 
-	GLuint indices[] = {  // note that we start from 0!
-		0, 1, 3,   // first triangle
-		1, 2, 3    // second triangle
+	std::vector<vec3ui> indices = 
+	{  
+		{ 0, 1, 3 },	// first triangle
+		{ 1, 2, 3 }		// second triangle
 	};
 
 	// ebo
 	glGenBuffers(1, &m_ebo);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(indices.front()), indices.data(), GL_STATIC_DRAW);
 
 	// vbo
 	glGenBuffers(1, &m_vbo);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices.front()), vertices.data(), GL_STATIC_DRAW);
 
 	/* ------------------------------------- */
 	// Vertex-Linking Attributes
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)NULL);
+	glVertexAttribPointer(0, sizeof(vec3f) / sizeof(float), GL_FLOAT, GL_FALSE, sizeof(vec3f), (void*)NULL);
 	glEnableVertexAttribArray(0);
 
 	/* ------------------------------------- */

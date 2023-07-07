@@ -1,5 +1,8 @@
 #include "HelloTriangle.h"
 
+// std
+#include <vector>
+
 bool HelloTriangle::tmpl_setup()
 {
 	// vao
@@ -8,23 +11,23 @@ bool HelloTriangle::tmpl_setup()
 	glBindVertexArray(m_vao);
 	/* ------------------------------------- */
 	// Write Memory to GPU
-	float vertices[] =
+	std::vector<vec3f> vertices =
 	{
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f,  0.5f, 0.0f
+		{ -0.5f, -0.5f },
+		{ 0.5f, -0.5f },
+		{ 0.0f,  0.5f }
 	};
 
 	// vbo
 	glGenBuffers(1, &m_vbo);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec3f), vertices.data(), GL_STATIC_DRAW);
 
 	/* ------------------------------------- */
 	// Vertex-Linking Attributes
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)NULL);
+	glVertexAttribPointer(0, sizeof(vec3f) / sizeof(float), GL_FLOAT, GL_FALSE, sizeof(vec3f), (void*)NULL);
 	glEnableVertexAttribArray(0);
 
 	/* ------------------------------------- */
