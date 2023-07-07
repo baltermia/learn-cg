@@ -149,6 +149,7 @@
     <ClInclude Include="IO.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Shared.h" />
+    <ClInclude Include="Vec.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicOpenGLSetup.cpp" />

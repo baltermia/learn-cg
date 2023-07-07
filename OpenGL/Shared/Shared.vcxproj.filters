@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Setup">
       <UniqueIdentifier>{76e0760a-6ada-4079-9391-4311ba052400}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Types">
+      <UniqueIdentifier>{7d496a0d-ea17-4c4a-b90a-8f8100b612bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -41,6 +44,9 @@
     </ClInclude>
     <ClInclude Include="BasicOpenGLSetup.h">
       <Filter>Source Files\Setup</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec.h">
+      <Filter>Source Files\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
