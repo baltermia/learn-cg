@@ -22,5 +22,5 @@ protected:
 
 private:
 	GLuint m_vao = 0; // vertex array object
-	GLuint m_vbo = 0; // vertex array objcet
+	GLuint m_vbo = 0; // vertex array object
 };

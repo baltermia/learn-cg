@@ -1,5 +1,8 @@
 #include "TwoTriangles.h"
 
+// std
+#include <vector>
+
 bool TwoTriangles::tmpl_setup()
 {
 	// vao
@@ -8,23 +11,28 @@ bool TwoTriangles::tmpl_setup()
 	glBindVertexArray(m_vao);
 	/* ------------------------------------- */
 	// Write Memory to GPU
-	float vertices[] =
+	typedef shrd::Vec3<float> vec3;
+
+	std::vector<vec3> vertices =
 	{
-		-0.75f, -0.75f, 0.0f,
-		0.75f, -0.0f, 0.0f,
-		0.0f,  0.75f, 0.0f
+		{ -0.75f, -0.25f },
+		{ -0.25f, -0.25f },
+		{ -0.5f,  0.5f },
+		{ 0.5f, 0.5f },
+		{ 0.25f, -0.25f },
+		{ 0.75f,  -0.25f }
 	};
 
 	// vbo
 	glGenBuffers(1, &m_vbo);
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vec3), vertices.data(), GL_STATIC_DRAW);
 
 	/* ------------------------------------- */
 	// Vertex-Linking Attributes
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)NULL);
+	glVertexAttribPointer(0, sizeof(vec3) / sizeof(float), GL_FLOAT, GL_FALSE, sizeof(vec3), (void*)NULL);
 	glEnableVertexAttribArray(0);
 
 	/* ------------------------------------- */
@@ -48,6 +56,7 @@ bool TwoTriangles::tmpl_frame_render()
 
 	// draw
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+	glDrawArrays(GL_TRIANGLES, 3, 6);
 	glBindVertexArray(0);
 
 	return true;
