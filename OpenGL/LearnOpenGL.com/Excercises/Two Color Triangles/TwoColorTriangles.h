@@ -19,7 +19,7 @@ protected:
 	// template properties
 protected:
 	// required properties
-	std::string tmpl_prop_window_name() override { return "Two Triangles"; }
+	std::string tmpl_prop_window_name() const override { return "Two Triangles"; }
 
 private:
 	GLuint m_vao1 = 0; // vertex array object
