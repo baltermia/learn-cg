@@ -15,8 +15,8 @@
 namespace shrd
 {
 
-	bool initialize_basic_window(const std::pair<int, int>& window_size, 
-								 const std::string& window_name, 
+	bool initialize_basic_window(const std::pair<int, int>& window_size,
+								 std::string_view window_name,
 								 const std::pair<int, int>& opengl_version,
 								 GLFWwindow** out_window)
 	{
@@ -42,7 +42,7 @@ namespace shrd
 		/* --------------------------------- */
 		/* Create Window Object */
 
-		* out_window = glfwCreateWindow(window_size.first, window_size.second, window_name.c_str(), NULL, NULL);
+		* out_window = glfwCreateWindow(window_size.first, window_size.second, window_name.data(), NULL, NULL);
 
 		if (out_window == NULL)
 		{
@@ -88,9 +88,9 @@ namespace shrd
 		return success;
 	}
 
-	bool try_load_shader(const std::string& source, GLuint* out_shader_id, GLenum shader_type)
+	bool try_load_shader(std::string_view source, GLuint* out_shader_id, GLenum shader_type)
 	{
-		const char* source_ptr = source.c_str();
+		const char* source_ptr = source.data();
 
 		*out_shader_id = glCreateShader(shader_type);
 
@@ -98,6 +98,16 @@ namespace shrd
 		glCompileShader(*out_shader_id);
 
 		return check_compilation_success(*out_shader_id);
+	}
+
+	bool try_load_shader_from_file(std::string_view path, GLuint* out_shader_id, GLenum shader_type)
+	{
+		if (!shrd::file_exists(path))
+			return false;
+
+		std::string source = shrd::read_file_into_string(path);
+
+		return try_load_shader(source, out_shader_id, shader_type);
 	}
 
 	bool check_linking_success(GLuint program_id)
