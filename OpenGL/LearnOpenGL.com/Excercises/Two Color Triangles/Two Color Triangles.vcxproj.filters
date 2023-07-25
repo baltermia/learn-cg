@@ -27,4 +27,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="white.frag">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="black.frag">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

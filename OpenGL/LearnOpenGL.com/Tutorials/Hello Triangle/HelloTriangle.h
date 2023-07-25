@@ -18,7 +18,7 @@ protected:
 	// template properties
 protected:
 	// required properties
-	std::string tmpl_prop_window_name() const override { return "Hello Triangle"; }
+	std::string_view tmpl_prop_window_name() const override { return "Hello Triangle"; }
 
 private:
 	GLuint m_vao = 0; // vertex array object

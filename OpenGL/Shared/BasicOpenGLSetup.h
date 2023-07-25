@@ -6,7 +6,7 @@
 
 // std
 #include <utility>
-#include <string>
+#include <string_view>
 
 namespace shrd
 {
@@ -39,7 +39,7 @@ namespace shrd
 	// properties
 	public:
 		inline std::pair<int, int> prop_window_size()	const	{ return m_window_size; }
-		inline std::string prop_window_name()			const	{ return tmpl_prop_window_name(); }
+		inline std::string_view prop_window_name()		const	{ return tmpl_prop_window_name(); }
 
 	// template methods
 	protected:
@@ -52,7 +52,7 @@ namespace shrd
 	// template properties
 	protected:
 		// required properties
-		virtual inline std::string tmpl_prop_window_name() const = 0;
+		virtual inline std::string_view tmpl_prop_window_name() const = 0;
 
 		// optional properties
 		virtual inline std::pair<int, int> tmpl_prop_opengl_version() const { return { 4, 6 }; };

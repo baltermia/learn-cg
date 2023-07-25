@@ -71,11 +71,14 @@ bool TwoColorTriangles::tmpl_frame_render()
 	// clear all colors
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	// use vao
+	// First
 	glUseProgram(m_gl_program_id);
 
 	glBindVertexArray(m_vao1);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	// Second
+	glUseProgram(m_gl_program_id_2);
 
 	glBindVertexArray(m_vao2);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -98,7 +101,37 @@ bool TwoColorTriangles::tmpl_clear_resources()
 
 bool TwoColorTriangles::tmpl_load_shaders()
 {
+	bool success;
 
+	// Load Fragment Shader 1
+	{
+	GLuint fragment_shader_1;
+		success = shrd::try_load_shader_from_file("white.frag", &fragment_shader_1, GL_FRAGMENT_SHADER);
+
+		// Load Shader into Program
+
+		glAttachShader(m_gl_program_id, fragment_shader_1);
+		glLinkProgram(m_gl_program_id);
+
+		success = shrd::check_linking_success(m_gl_program_id);
+
+		glDeleteShader(fragment_shader_1);
+	}
+
+	// Load Fragment Shader 2
+	{
+		GLuint fragment_shader_2;
+		success = shrd::try_load_shader_from_file("black.frag", &fragment_shader_2, GL_FRAGMENT_SHADER);
+
+		// Load Shader into Program
+
+		glAttachShader(m_gl_program_id_2, fragment_shader_2);
+		glLinkProgram(m_gl_program_id_2);
+
+		success = shrd::check_linking_success(m_gl_program_id_2);
+
+		glDeleteShader(fragment_shader_2);
+	}
 
 	return true;
 }

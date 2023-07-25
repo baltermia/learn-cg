@@ -11,15 +11,15 @@
 namespace shrd
 {
 
-	bool file_exists(const std::string& filename)
+	bool file_exists(std::string_view filename)
 	{
 		namespace fs = std::filesystem;
 		return fs::exists(fs::path(filename));
 	}
 
-	std::string read_file_into_string(const std::string& filename)
+	std::string read_file_into_string(std::string_view filename)
 	{
-		std::ifstream file(filename);
+		std::ifstream file(filename.data());
 
 		std::string content{ std::istreambuf_iterator<char>(file),
 							  std::istreambuf_iterator<char>() };

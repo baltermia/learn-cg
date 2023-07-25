@@ -18,7 +18,7 @@ protected:
 	// template properties
 protected:
 	// required properties
-	std::string tmpl_prop_window_name() const override { return "Element Buffer Object"; }
+	std::string_view tmpl_prop_window_name() const override { return "Element Buffer Object"; }
 
 private:
 	GLuint m_vao = 0; // vertex array object
