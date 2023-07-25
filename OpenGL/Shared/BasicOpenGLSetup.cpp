@@ -55,6 +55,12 @@ bool shrd::BasicOpenGLSetup::run()
 	{
 		while (!glfwWindowShouldClose(m_window))
 		{
+			// toggle between polygon and normal mode
+			if (glfwGetKey(m_window, GLFW_KEY_1) == GLFW_PRESS)
+				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			if (glfwGetKey(m_window, GLFW_KEY_2) == GLFW_PRESS)
+				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
 			if (!tmpl_frame_input() ||
 				!tmpl_frame_render())
 				return false;
@@ -78,9 +84,12 @@ bool shrd::BasicOpenGLSetup::clean()
 {
 	glDeleteProgram(m_gl_program_id);
 
-	glfwTerminate();
+	if (!tmpl_clear_resources())
+		return false;
 
-	return tmpl_clear_resources();
+	glfwTerminate();
+	
+	return true;
 }
 
 bool shrd::BasicOpenGLSetup::tmpl_frame_input()
