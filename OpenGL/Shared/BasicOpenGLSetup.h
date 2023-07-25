@@ -47,6 +47,9 @@ namespace shrd
 		virtual inline bool tmpl_frame_render()		{ return true; }
 		virtual inline bool tmpl_frame_input();
 		virtual inline bool tmpl_clear_resources()	{ return true; }
+		/// <summary>
+		/// Either override this function to manually load the shaders or create shader.vert/.frag files to only override the default shaders
+		/// </summary>
 		virtual inline bool tmpl_load_shaders();
 
 	// template properties

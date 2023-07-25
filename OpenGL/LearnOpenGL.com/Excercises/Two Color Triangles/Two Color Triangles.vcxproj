@@ -144,6 +144,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="both.vert" />
     <None Include="white.frag" />
     <None Include="black.frag" />
   </ItemGroup>

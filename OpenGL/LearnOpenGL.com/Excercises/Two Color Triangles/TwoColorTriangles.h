@@ -18,7 +18,7 @@ protected:
 	std::string_view tmpl_prop_window_name() const override { return "Two Color Triangles"; }
 
 private:
-	GLuint m_gl_program_id_2; // second opengl program
+	GLuint m_gl_program_id_2 = 0; // second opengl program
 	GLuint m_vao1 = 0; // vertex array object
 	GLuint m_vbo1 = 0; // vertex buffer object
 	GLuint m_vao2 = 0; // vertex array object

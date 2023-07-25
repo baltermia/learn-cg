@@ -34,5 +34,8 @@
     <None Include="black.frag">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="both.vert">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

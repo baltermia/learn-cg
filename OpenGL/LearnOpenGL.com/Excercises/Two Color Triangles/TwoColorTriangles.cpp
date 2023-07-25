@@ -12,8 +12,7 @@ bool TwoColorTriangles::tmpl_setup()
 		glGenVertexArrays(1, &m_vao1);
 
 		glBindVertexArray(m_vao1);
-		/* ------------------------------------- */
-		// Write Memory to GPU
+
 		std::vector<vec3f> vertices1 =
 		{
 			{ -0.75f, -0.25f },
@@ -26,9 +25,6 @@ bool TwoColorTriangles::tmpl_setup()
 
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo1);
 		glBufferData(GL_ARRAY_BUFFER, vertices1.size() * sizeof(vec3f), vertices1.data(), GL_STATIC_DRAW);
-
-		/* ------------------------------------- */
-		// Vertex-Linking Attributes
 
 		glVertexAttribPointer(0, sizeof(vec3f) / sizeof(float), GL_FLOAT, GL_FALSE, sizeof(vec3f), (void*)NULL);
 		glEnableVertexAttribArray(0);
@@ -48,11 +44,11 @@ bool TwoColorTriangles::tmpl_setup()
 			{ 0.75f,  -0.25f }
 		};
 
+		// vbo
 		glGenBuffers(1, &m_vbo2);
 
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo2);
 		glBufferData(GL_ARRAY_BUFFER, vertices2.size() * sizeof(vec3f), vertices2.data(), GL_STATIC_DRAW);
-
 
 		glVertexAttribPointer(0, sizeof(vec3f) / sizeof(float), GL_FLOAT, GL_FALSE, sizeof(vec3f), (void*)NULL);
 		glEnableVertexAttribArray(0);
@@ -96,6 +92,8 @@ bool TwoColorTriangles::tmpl_clear_resources()
 	glDeleteVertexArrays(1, &m_vao1);
 	glDeleteVertexArrays(1, &m_vao2);
 
+	glDeleteProgram(m_gl_program_id_2);
+
 	return true;
 }
 
@@ -103,13 +101,19 @@ bool TwoColorTriangles::tmpl_load_shaders()
 {
 	bool success;
 
-	// Load Fragment Shader 1
+	// First load vertex shader (used for both programs)
+	GLuint vertex_shader;	
+	
+	success = shrd::try_load_shader_from_file("both.vert", &vertex_shader, GL_VERTEX_SHADER);
+
+	// Load Fragment Shader program1
 	{
-	GLuint fragment_shader_1;
-		success = shrd::try_load_shader_from_file("white.frag", &fragment_shader_1, GL_FRAGMENT_SHADER);
+		GLuint fragment_shader_1;
+		success = shrd::try_load_shader_from_file("black.frag", &fragment_shader_1, GL_FRAGMENT_SHADER);
 
 		// Load Shader into Program
 
+		glAttachShader(m_gl_program_id, vertex_shader);
 		glAttachShader(m_gl_program_id, fragment_shader_1);
 		glLinkProgram(m_gl_program_id);
 
@@ -118,13 +122,14 @@ bool TwoColorTriangles::tmpl_load_shaders()
 		glDeleteShader(fragment_shader_1);
 	}
 
-	// Load Fragment Shader 2
+	// Load Fragment Shader program2
 	{
 		GLuint fragment_shader_2;
-		success = shrd::try_load_shader_from_file("black.frag", &fragment_shader_2, GL_FRAGMENT_SHADER);
+		success = shrd::try_load_shader_from_file("white.frag", &fragment_shader_2, GL_FRAGMENT_SHADER);
 
 		// Load Shader into Program
 
+		glAttachShader(m_gl_program_id_2, vertex_shader);
 		glAttachShader(m_gl_program_id_2, fragment_shader_2);
 		glLinkProgram(m_gl_program_id_2);
 
@@ -132,6 +137,8 @@ bool TwoColorTriangles::tmpl_load_shaders()
 
 		glDeleteShader(fragment_shader_2);
 	}
+
+	glDeleteShader(vertex_shader);
 
 	return true;
 }
