@@ -60,6 +60,8 @@ bool shrd::BasicOpenGLSetup::run()
 				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 			if (glfwGetKey(m_window, GLFW_KEY_2) == GLFW_PRESS)
 				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+			if (glfwGetKey(m_window, GLFW_KEY_3) == GLFW_PRESS)
+				glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
 			if (!tmpl_frame_input() ||
 				!tmpl_frame_render())
