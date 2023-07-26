@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Types">
       <UniqueIdentifier>{7d496a0d-ea17-4c4a-b90a-8f8100b612bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Shader">
+      <UniqueIdentifier>{ea082295-993c-4e17-975a-f009dfe9d891}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="Vec.h">
       <Filter>Source Files\Types</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Source Files\Shader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -61,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="BasicOpenGLSetup.cpp">
       <Filter>Source Files\Setup</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Shader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
