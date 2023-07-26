@@ -10,19 +10,27 @@
 constexpr const char* c_default_vertex_shader_filename = "shader.vert";
 constexpr const char* c_default_fragment_shader_filename = "shader.frag";
 
-constexpr const char* c_default_shader_vertex = "#version 460 core\n"
-    "layout (location = 0) in vec3 pos;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = vec4(pos, 1.0);\n"
-	"}\0";
+constexpr const char* c_default_shader_vertex = R"(
+#version 460 core
 
-constexpr const char* c_default_shader_fragment = "#version 460 core\n"
-    "out vec4 FragColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-	"}\n\0";
+layout(location = 0) in vec3 pos;
+
+void main()
+{
+	gl_Position = vec4(pos, 1);
+}
+)";
+
+constexpr const char* c_default_shader_fragment = R"(
+#version 460 core
+
+out vec4 FragColor;
+
+void main()
+{
+	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+}
+)";
 
 void shrd::BasicOpenGLSetup::callback_framebuffer_size_changed(GLFWwindow* window, int width, int height)
 {
