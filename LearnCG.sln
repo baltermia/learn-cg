@@ -26,6 +26,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 - Two Triangles 2", "Ope
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 - Two Color Triangles", "OpenGL\LearnOpenGL.com\Excercises\Two Color Triangles\Two Color Triangles.vcxproj", "{A0FA72DE-6A20-4875-B109-1B203C66ABAD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 - Uniforms", "OpenGL\LearnOpenGL.com\Tutorials\Uniforms\Uniforms.vcxproj", "{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -82,6 +84,14 @@ Global
 		{A0FA72DE-6A20-4875-B109-1B203C66ABAD}.Release|x64.Build.0 = Release|x64
 		{A0FA72DE-6A20-4875-B109-1B203C66ABAD}.Release|x86.ActiveCfg = Release|Win32
 		{A0FA72DE-6A20-4875-B109-1B203C66ABAD}.Release|x86.Build.0 = Release|Win32
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Debug|x64.ActiveCfg = Debug|x64
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Debug|x64.Build.0 = Debug|x64
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Debug|x86.ActiveCfg = Debug|Win32
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Debug|x86.Build.0 = Debug|Win32
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Release|x64.ActiveCfg = Release|x64
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Release|x64.Build.0 = Release|x64
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Release|x86.ActiveCfg = Release|Win32
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +106,7 @@ Global
 		{398B836D-BE7A-481D-9EE2-7E1402A666DE} = {38E73FE7-671C-4493-A459-68F2FF7CC08F}
 		{964711DA-D3ED-4CE3-8394-B929CD43BA22} = {38E73FE7-671C-4493-A459-68F2FF7CC08F}
 		{A0FA72DE-6A20-4875-B109-1B203C66ABAD} = {38E73FE7-671C-4493-A459-68F2FF7CC08F}
+		{5A67F8DE-5B74-43F2-A201-CAA692CF20F0} = {EBCD2649-80D6-443A-9898-2B4F7DE9BA9F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2503D3BB-F01E-42BC-AAA5-EA5F771501F2}
