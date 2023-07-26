@@ -102,43 +102,42 @@ bool TwoColorTriangles::tmpl_load_shaders()
 	bool success;
 
 	// First load vertex shader (used for both programs)
-	GLuint vertex_shader;	
-	
-	success = shrd::try_load_shader_from_file("both.vert", &vertex_shader, GL_VERTEX_SHADER);
+	Shader vertex_shader;
+	success = Shader::from_file("both.vert", GL_VERTEX_SHADER, &vertex_shader);
 
 	// Load Fragment Shader program1
 	{
-		GLuint fragment_shader_1;
-		success = shrd::try_load_shader_from_file("black.frag", &fragment_shader_1, GL_FRAGMENT_SHADER);
+		Shader fragment_shader_1;
+		success = Shader::from_file("black.frag", GL_FRAGMENT_SHADER, &fragment_shader_1);
 
 		// Load Shader into Program
 
-		glAttachShader(m_gl_program_id, vertex_shader);
-		glAttachShader(m_gl_program_id, fragment_shader_1);
+		vertex_shader.attach_to_program(m_gl_program_id);
+		fragment_shader_1.attach_to_program(m_gl_program_id);
 		glLinkProgram(m_gl_program_id);
 
 		success = shrd::check_linking_success(m_gl_program_id);
 
-		glDeleteShader(fragment_shader_1);
+		fragment_shader_1.clean();
 	}
 
 	// Load Fragment Shader program2
 	{
-		GLuint fragment_shader_2;
-		success = shrd::try_load_shader_from_file("white.frag", &fragment_shader_2, GL_FRAGMENT_SHADER);
+		Shader fragment_shader_2;
+		success = Shader::from_file("white.frag", GL_FRAGMENT_SHADER, &fragment_shader_2);
 
 		// Load Shader into Program
 
-		glAttachShader(m_gl_program_id_2, vertex_shader);
-		glAttachShader(m_gl_program_id_2, fragment_shader_2);
+		vertex_shader.attach_to_program(m_gl_program_id_2);
+		fragment_shader_2.attach_to_program(m_gl_program_id_2);
 		glLinkProgram(m_gl_program_id_2);
 
 		success = shrd::check_linking_success(m_gl_program_id_2);
 
-		glDeleteShader(fragment_shader_2);
+		fragment_shader_2.clean();
 	}
 
-	glDeleteShader(vertex_shader);
+	vertex_shader.clean();
 
 	return true;
 }
