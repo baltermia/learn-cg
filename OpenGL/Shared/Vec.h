@@ -9,6 +9,12 @@ namespace shrd
         T x, y, z;
     };
 
+    template<typename T>
+    struct Vec2
+    {
+        T x, y;
+    };
+
 }
 
 typedef shrd::Vec3<float> vec3f;

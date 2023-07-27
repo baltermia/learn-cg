@@ -10,9 +10,6 @@
 #include <array>
 #include <iostream>
 
-// gl
-#include "GLFW/glfw3.h"
-
 bool Shader::from_file(std::string_view filename, GLuint shader_type, Shader* out_shader)
 {
 	if (shrd::file_exists(filename))
