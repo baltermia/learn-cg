@@ -1,7 +1,5 @@
 #include "Uniforms.h"
 
-#include "..\..\..\Shared\Vec.h"
-
 int main()
 {
 	Uniforms setup;
