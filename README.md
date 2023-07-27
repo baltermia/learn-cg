@@ -5,8 +5,8 @@
 
 ### Dependencies
 
-- [GLFW](https://github.com/glfw/glfw) & [GLAD](https://github.com/dav1dde/glad)
-   - `vcpkg install glad glfw3`
+- [GLFW](https://github.com/glfw/glfw), [GLAD](https://github.com/dav1dde/glad) & [STB](https://github.com/nothings/stb)
+   - `vcpkg install glad glfw3 stb`
   
 > **Note**:  The dependencies do not need to be installed with `vcpkg`. They can also be manually linked in each project. Simple `vcpkg` Starting-Guide: [baltermia/docs/Tools/vcpkg.md](https://github.com/baltermia/docs/blob/main/Tools/VCPKG.md)
 
