@@ -22,14 +22,14 @@ Texture2D::Texture2D(std::string_view filepath)
 		return;
 	}
 
-	size_t size = m_width * m_height * m_channels;
+	size_t size = static_cast<size_t>(m_width * m_height * m_channels);
 
 	m_data = { data, size };
 
 	glGenTextures(1, &m_texture_id);
 }
 
-Texture2D& Texture2D::load_into_gl()
+void Texture2D::load_into_gl()
 {
 	glBindTexture(GL_TEXTURE_2D, m_texture_id);
 
@@ -38,19 +38,17 @@ Texture2D& Texture2D::load_into_gl()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, m_data.data());
 	glGenerateMipmap(GL_TEXTURE_2D);
 
-	return *this;
-}
-
-void Texture2D::clean() 
-{
 	stbi_image_free(m_data.data());
 }
 
-Texture2D& Texture2D::bind_id(GLuint* out_texture_id)
+void Texture2D::bind()
 {
-	*out_texture_id = m_texture_id;
+	glBindTexture(GL_TEXTURE_2D, m_texture_id);
+}
 
-	return *this;
+void Texture2D::clean_gl()
+{
+	glDeleteTextures(1, &m_texture_id);
 }
 
 void Texture2D::set_gl_texture_parameters()

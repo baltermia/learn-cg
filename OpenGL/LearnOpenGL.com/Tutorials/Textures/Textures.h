@@ -2,6 +2,7 @@
 
 // shared
 #include "..\..\..\Shared\BasicOpenGLSetup.h"
+#include "..\..\..\Shared\Texture2D.h"
 
 class Textures : public shrd::BasicOpenGLSetup
 {
@@ -20,5 +21,5 @@ private:
 	GLuint m_vao = 0; // vertex array object
 	GLuint m_vbo = 0; // vertex buffer object
 	GLuint m_ebo = 0; // element buffer object
-	GLuint m_texture = 0; // texture ID
+	Texture2D m_texture; // texture ID
 };

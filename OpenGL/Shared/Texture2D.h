@@ -11,14 +11,30 @@ class Texture2D
 {
 // Construction
 public:
+	/// <summary>
+	/// Default empty constructor. The create instance cannot be used but simply takes up space
+	/// </summary>
+	Texture2D() {}
+
+	/// <summary>
+	/// Reads the texture from a image file
+	/// </summary>
 	Texture2D(std::string_view filepath);
 
 // Functions
 public:
-	Texture2D& load_into_gl();
-	void clean();
-	
-	Texture2D& bind_id(GLuint* out_texture_id);
+	/// <summary>
+	/// Loads the read image data into the opengl memory buffer. This also automatically clears prop_data()
+	/// </summary>
+	void load_into_gl();
+	/// <summary>
+	/// Binds the texture. This can be used to edit or use the texture (e.g. in the frame-loop)
+	/// </summary>
+	void bind();
+	/// <summary>
+	/// Delete any memory used from gl. The texture cannot be used after calling this
+	/// </summary>
+	void clean_gl();
 
 // Properties
 public:

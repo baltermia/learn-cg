@@ -2,7 +2,6 @@
 
 // shrd
 #include "..\..\..\Shared\Vec.h"
-#include "..\..\..\Shared\Texture2D.h"
 
 // std
 #include <vector>
@@ -70,10 +69,8 @@ bool Textures::tmpl_setup()
 	/* ------------------------------------- */
 	// Load Texture
 
-	Texture2D("./Resources/texture.jpg")
-		.load_into_gl()
-		.bind_id(&m_texture)
-		.clean();
+	m_texture = { "./Resources/texture.jpg" };
+	m_texture.load_into_gl();
 
 	return true;
 }
@@ -86,7 +83,7 @@ bool Textures::tmpl_frame_render()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	// bind texture
-	glBindTexture(GL_TEXTURE_2D, m_texture);
+	m_texture.bind();
 
 	// draw with texture
 	glUseProgram(m_gl_program_id);
@@ -103,7 +100,7 @@ bool Textures::tmpl_clear_resources()
 
 	glDeleteVertexArrays(1, &m_vao);
 
-	glDeleteTextures(1, &m_texture);
+	m_texture.clean_gl();
 
 	return true;
 }
