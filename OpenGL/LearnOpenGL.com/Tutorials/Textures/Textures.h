@@ -11,6 +11,7 @@ protected:
 	bool tmpl_setup() override;
 	bool tmpl_frame_render() override;
 	bool tmpl_clear_resources() override;
+	bool tmpl_frame_input() override;
 
 	// template properties
 protected:
@@ -22,5 +23,6 @@ private:
 	GLuint m_vbo = 0; // vertex buffer object
 	GLuint m_ebo = 0; // element buffer object
 	Texture2D m_texture_wall; // wall texture
-	Texture2D m_texture_face;
+	Texture2D m_texture_face; // face texture
+	GLfloat m_mixture = .2f; // mixture ratio between above textures in fragment shader
 };

@@ -94,6 +94,10 @@ bool Textures::tmpl_frame_render()
 
 	// draw with texture
 	glUseProgram(m_gl_program_id);
+
+	// add mixture
+	glUniform1f(glGetUniformLocation(m_gl_program_id, "mix_ratio"), m_mixture);
+
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -111,4 +115,17 @@ bool Textures::tmpl_clear_resources()
 	m_texture_face.clean_gl();
 
 	return true;
+}
+
+bool Textures::tmpl_frame_input()
+{
+	if (glfwGetKey(m_window, GLFW_KEY_UP) == GLFW_PRESS)
+		if (m_mixture < 1)
+			m_mixture += .0005f;
+
+	if (glfwGetKey(m_window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		if (m_mixture > 0)
+			m_mixture -= .0005f;
+
+	return BasicOpenGLSetup::tmpl_frame_input();
 }
