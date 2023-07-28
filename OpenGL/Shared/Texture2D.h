@@ -19,7 +19,7 @@ public:
 	/// <summary>
 	/// Reads the texture from a image file
 	/// </summary>
-	Texture2D(std::string_view filepath);
+	Texture2D(std::string_view filepath, GLuint unit = 0);
 
 // Functions
 public:
@@ -27,10 +27,14 @@ public:
 	/// Loads the read image data into the opengl memory buffer. This also automatically clears prop_data()
 	/// </summary>
 	void load_into_gl();
+	
 	/// <summary>
 	/// Binds the texture. This can be used to edit or use the texture (e.g. in the frame-loop)
 	/// </summary>
 	void bind();
+
+	void attach_uniform(GLuint shader_id, std::string_view var_name);
+
 	/// <summary>
 	/// Delete any memory used from gl. The texture cannot be used after calling this
 	/// </summary>
@@ -39,6 +43,8 @@ public:
 // Properties
 public:
 	GLuint prop_texture_id() const { return m_texture_id; }
+	GLuint prop_unit() const { return m_unit; }
+	void set_unit(GLuint unit) { m_unit = unit; }
 	int prop_width() const { return m_width; }
 	int prop_height() const { return m_height; }
 	int prop_channels() const { return m_channels; }
@@ -53,6 +59,7 @@ private:
 private:
 	std::string_view m_filepath;
 	GLuint m_texture_id = 0;
+	GLuint m_unit = 0;
 	int m_width = 0;
 	int m_height = 0;
 	int m_channels = 0;

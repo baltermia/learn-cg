@@ -139,7 +139,8 @@
     <ClInclude Include="Textures.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\texture.jpg" />
+    <Image Include="Resources\face.png" />
+    <Image Include="Resources\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shader.frag" />

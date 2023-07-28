@@ -21,5 +21,6 @@ private:
 	GLuint m_vao = 0; // vertex array object
 	GLuint m_vbo = 0; // vertex buffer object
 	GLuint m_ebo = 0; // element buffer object
-	Texture2D m_texture; // texture ID
+	Texture2D m_texture_wall; // wall texture
+	Texture2D m_texture_face;
 };

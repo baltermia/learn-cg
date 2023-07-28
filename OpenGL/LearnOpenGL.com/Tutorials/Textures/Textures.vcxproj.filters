@@ -28,7 +28,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resources\texture.jpg">
+    <Image Include="Resources\face.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\wall.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

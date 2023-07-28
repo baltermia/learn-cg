@@ -67,10 +67,16 @@ bool Textures::tmpl_setup()
 	glBindVertexArray(0);
 
 	/* ------------------------------------- */
-	// Load Texture
+	// Load Textures
 
-	m_texture = { "./Resources/texture.jpg" };
-	m_texture.load_into_gl();
+	m_texture_wall = { "./Resources/wall.jpg", 0 };
+	m_texture_wall.load_into_gl();
+
+	m_texture_face = { "./Resources/face.png", 1 };
+	m_texture_face.load_into_gl();
+
+	m_texture_wall.attach_uniform(m_gl_program_id, "texture_wall");
+	m_texture_face.attach_uniform(m_gl_program_id, "texture_face");
 
 	return true;
 }
@@ -82,8 +88,9 @@ bool Textures::tmpl_frame_render()
 	// clear all colors
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	// bind texture
-	m_texture.bind();
+	// bind textures
+	m_texture_wall.bind();
+	m_texture_face.bind();
 
 	// draw with texture
 	glUseProgram(m_gl_program_id);
@@ -100,7 +107,8 @@ bool Textures::tmpl_clear_resources()
 
 	glDeleteVertexArrays(1, &m_vao);
 
-	m_texture.clean_gl();
+	m_texture_wall.clean_gl();
+	m_texture_face.clean_gl();
 
 	return true;
 }
