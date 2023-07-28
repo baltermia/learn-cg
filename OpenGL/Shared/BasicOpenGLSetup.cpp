@@ -38,9 +38,8 @@ void shrd::BasicOpenGLSetup::callback_framebuffer_size_changed(GLFWwindow* windo
 }
 
 shrd::BasicOpenGLSetup::BasicOpenGLSetup(int width, int height)
-{
-	m_window_size = { width, height };
-}
+	: m_window_size(width, height)
+{ }
 
 bool shrd::BasicOpenGLSetup::initialize()
 {
