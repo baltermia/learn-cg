@@ -9,7 +9,9 @@
 
 // vcpkg
 #define STB_IMAGE_IMPLEMENTATION
+#pragma warning(push, 0) // disable all following warnings
 #include "stb_image.h"
+#pragma warning(pop) // enable warnings again
 
 Texture2D::Texture2D(std::string_view filepath, GLuint unit)
 	: m_filepath(filepath),
