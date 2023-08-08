@@ -1,3 +1,3 @@
 # LearnOpenGL
 
-The Projects in this repository follow the guide on https://learnopengl.com/
+The projects in this directory follow the guide on https://learnopengl.com/
