@@ -8,6 +8,28 @@
 
 bool BasicRaytracing::tmpl_setup()
 {
+	std::vector<Sphere> spheres =
+	{
+		Sphere
+		{
+			{ 0, -1, 3 },
+			{ 255 },
+			1.f
+		},
+		Sphere
+		{
+			{ 2, 0, 4 },
+			{ 0, 0, 255 },
+			1.f
+		},
+		Sphere
+		{
+			{ -2, 0, 4 },
+			{ 0, 255 },
+			1.f
+		}
+	};
+
 	// vao
 	glGenVertexArrays(1, &m_vao);
 

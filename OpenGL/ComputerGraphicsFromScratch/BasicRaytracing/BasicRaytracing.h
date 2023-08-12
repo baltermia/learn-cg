@@ -1,7 +1,12 @@
 #pragma once
 
+#include "Sphere.h"
+
 // shared
 #include "../../Shared\BasicOpenGLSetup.h"
+
+// std
+#include <vector>
 
 class BasicRaytracing : public shrd::BasicOpenGLSetup
 {
@@ -19,4 +24,5 @@ protected:
 private:
 	GLuint m_vao = 0; // vertex array object
 	GLuint m_vbo = 0; // vertex buffer object
+	std::vector<Sphere> m_spheres; // spheres to ray-trace
 };
