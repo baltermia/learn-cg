@@ -3,7 +3,7 @@
 // shared
 #include "../../Shared/Vec.h"
 
-class Sphere
+struct Sphere
 {
 	vec3f center;
 	vec3f color;
