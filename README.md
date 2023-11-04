@@ -36,5 +36,10 @@ sh ./bootstrap-vcpkg.sh
 
 Then install the following dependencies:
 ```
-vcpkg install glfw3
+vcpkg install glfw3 angle
 ```
+
+## TODOs
+
+1. Add dependencies ([glfw3](https://github.com/glfw/glfw/) and [angle](https://github.com/google/angle/)) as submodules
+   - Ditch `vcpkg` lmao
