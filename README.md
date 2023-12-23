@@ -27,19 +27,23 @@ Install dependencies with brew:
 brew install cmake
 ```
 
-Also clone `vcpkg` and execute the bootstrap:
+## Build Steps
+
+### Building Dependencies
+
+Execute the build script for angle:
 ```
-git clone https://github.com/microsoft/vcpkg ./vcpkg
-cd vcpkg
-sh ./bootstrap-vcpkg.sh
+sh vendor/angle/build/install-build-deps.sh
 ```
 
-Then install the following dependencies:
+### Building Program
+
+First, build the cmake configuration into the build directory:
 ```
-vcpkg install glfw3 angle
+cmake -B build -S .
 ```
 
-## TODOs
-
-1. Add dependencies ([glfw3](https://github.com/glfw/glfw/) and [angle](https://github.com/google/angle/)) as submodules
-   - Ditch `vcpkg` lmao
+Then, build the binaries:
+```
+cmake --build build
+```
